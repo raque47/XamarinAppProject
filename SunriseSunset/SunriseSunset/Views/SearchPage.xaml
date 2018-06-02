@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SunriseSunset.Views.SearchPage"
+             Title="Search Capital">
+    <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+        <Label Text="Country" />
+        <Entry x:Name="countryEntry" Text="{Binding Path=Country}" Placeholder="task name" />
+        <Button Text="Delete" Clicked="OnDeleteActivated" />
+    </StackLayout>
+</ContentPage>
