@@ -18,5 +18,11 @@ namespace SunriseSunset.Services
         {
             return restService.GetCountryIformationAsync(country);
         }
+
+        public Task<List<Item>> GetSunriseAndSunset(float lat, float longitud)
+        {
+            return restService.GetSunriseAndSunset(lat, longitud);
+        }
+       
     }
 }

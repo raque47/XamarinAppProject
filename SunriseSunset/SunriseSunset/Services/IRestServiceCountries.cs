@@ -9,6 +9,8 @@ namespace SunriseSunset.Services
     public interface IRestServiceCountries
     {
         Task<List<Item>> GetCountryIformationAsync(string country);
+
+        Task<List<Item>> GetSunriseAndSunset(float lat, float longitud);
     }
 }
 

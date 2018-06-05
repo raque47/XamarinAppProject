@@ -125,6 +125,8 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\hamburger.png" />
     <BundleResource Include="Resources\hamburger%402x.png" />
+    <BundleResource Include="Resources\sunriseapp.png" />
+    <BundleResource Include="Resources\sunsetapp.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -137,6 +139,9 @@
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>3.0.0.530893</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

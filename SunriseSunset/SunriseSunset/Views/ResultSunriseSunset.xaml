@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SunriseSunset.Views.ResultSunriseSunset" Title="Sunrise and Sunset">
+    <ContentPage.Content>
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+            <Label Margin="0,10,0,5" x:Name="sunrise" FontAttributes="Bold"/>
+            <Image x:Name="imageSunrise" />
+
+            <Label Margin="0,25,0,5" x:Name="sunset" FontAttributes="Bold" />
+            <Image x:Name="imageSunset" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,6 +14,8 @@ namespace SunriseSunset.Services
     {
         HttpClient client;
 
+        HttpClient clientSunriseSunset;
+
         public List<Item> Items { get; private set; }
 
         public RestServiceCountries()
@@ -22,6 +24,8 @@ namespace SunriseSunset.Services
             client.DefaultRequestHeaders.Add("X-Mashape-Key", "0QLx05ycbCmsh3lcpXAukYZcgQ3Qp1P6rZYjsn4d2aZy1bVRDp");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
 
+
+            clientSunriseSunset = new HttpClient();
         }
 
 
@@ -43,9 +47,38 @@ namespace SunriseSunset.Services
             {
                 Debug.WriteLine(@"ERROR {0}", ex.Message);
             }
-            Debug.WriteLine(Items[0].Capital);
+            //Debug.WriteLine(Items[0].Capital);
 
             return Items;
         }
+
+
+        public async Task<List<Item>> GetSunriseAndSunset(float lat, float longitud)
+        {
+            Items = new List<Item>();
+            string RestSunriseSunsetURL = "https://api.sunrise-sunset.org/json?lat={0}&lng={1}&date=today";
+            var uri = new Uri(string.Format(RestSunriseSunsetURL, lat, longitud));
+            try
+            {
+                var response = await clientSunriseSunset.GetAsync(uri);
+   
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    int startIndex = 11;
+                    int endIndex = content.Length - 27;
+                    String substring = content.Substring(startIndex, content.Length - 26);
+                    string finalResponse = substring.Insert(0, "[");
+                    string finalContent = finalResponse.Insert(finalResponse.Length, "]");
+                    Items = JsonConvert.DeserializeObject<List<Item>>(finalContent);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"ERROR {0}", ex.Message);
+            }
+
+            return Items;
+        }  
     }
 }

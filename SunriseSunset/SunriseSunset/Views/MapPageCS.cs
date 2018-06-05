@@ -1,28 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using SunriseSunset.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
 namespace SunriseSunset.Views
 {
-    public partial class ResultCapitalContentPage : ContentPage
+    public class MapPageCS : ContentPage
     {
-        public ResultCapitalContentPage(Item newItem)
+        public MapPageCS()
         {
-            InitializeComponent();
-            capital.Text = newItem.Capital;
-
+            var customMap = new CustomMap
+            {
+                MapType = MapType.Street
+            };
 
             var pin = new Pin
             {
                 Type = PinType.Place,
-                Position = new Position(newItem.Lat, newItem.Long),
-                Label = "Country" + newItem.Country +", " + newItem.Capital,
-                Address = ""
+                Position = new Position(37.79752, -122.40183),
+                Label = "Xamarin San Francisco Office",
+                Address = "394 Pacific Ave, San Francisco CA"
             };
 
-            var position = new Position(newItem.Lat, newItem.Long);
+            var position = new Position(37.79752, -122.40183);
             customMap.Circle = new CustomCircle
             {
                 Position = position,
@@ -31,6 +30,8 @@ namespace SunriseSunset.Views
 
             customMap.Pins.Add(pin);
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(1.0)));
+
+            Content = customMap;
         }
     }
 }

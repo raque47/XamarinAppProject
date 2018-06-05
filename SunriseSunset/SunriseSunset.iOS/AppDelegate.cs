@@ -24,6 +24,12 @@ namespace SunriseSunset.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            Xamarin.FormsMaps.Init();
+
+            //App.ScreenWidth = UIScreen.MainScreen.Bounds.Width - 20;
+           // App.ScreenHeight = UIScreen.MainScreen.Bounds.Height - 40;
+
+           // LoadApplication(new App()); 
 
             return base.FinishedLaunching(app, options);
         }

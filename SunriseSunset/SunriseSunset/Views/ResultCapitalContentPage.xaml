@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SunriseSunset.Views"
              x:Class="SunriseSunset.Views.ResultCapitalContentPage">
     <ContentPage.Content>
         <StackLayout Margin="20" VerticalOptions="StartAndExpand">
             <Label Text="Capital is" x:Name="capital" />
+           
+            <local:CustomMap x:Name="customMap" MapType="Street" WidthRequest="30" 
+                             HeightRequest="200" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

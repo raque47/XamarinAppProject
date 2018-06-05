@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="SunriseSunset.Views.MainPage" Title="Todo">
-     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Serch Capital" Clicked="OnSearchCapitalItemClicked">
-                <ToolbarItem.Icon>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="Android" Value="plus.png" /></OnPlatform>
-                </ToolbarItem.Icon>
-        </ToolbarItem>  
-
-    </ContentPage.ToolbarItems> 
-                    <StackLayout Padding="40,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-
-                        <Label Text="Welcome" VerticalTextAlignment="Center" />
-                     
-                    </StackLayout>
-      
+             x:Class="SunriseSunset.Views.MainPage" Title="Welcome! Search info about a country!">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About" Clicked="OnAbout">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>  
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="5"/>             
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10,10,10,10" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        
+        <Grid Margin="0,0,0,0" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Search Capital"  Grid.Row="0" Grid.Column="0" Style="{StaticResource plainButton}" Clicked="OnSearchCapitalItemClicked" BackgroundColor = "#424"  TextColor="White"/>
+            <Button Text="Look sunrise and sunset"  Grid.Row="1" Grid.Column="0" Style="{StaticResource plainButton}" Clicked="OnSearchSunsetSunriseItemClicked"  BackgroundColor = "Teal"/>
+        </Grid>
+    </StackLayout>
 </ContentPage>
 <!-- <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 

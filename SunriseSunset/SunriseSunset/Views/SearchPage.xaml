@@ -2,10 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SunriseSunset.Views.SearchPage"
-             Title="Search Capital">
-    <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <Label Text="Country" />
-        <Entry x:Name="countryEntry" Text="{Binding Path=Country}" Placeholder="task name" />
-        <Button Text="Delete" Clicked="OnDeleteActivated" />
+             Title="Search">
+         <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Teal"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="2"/>
+                <Setter Property="FontSize" Value="14" />
+                 <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="20,40,20,20" VerticalOptions="StartAndExpand">
+        <Label Text="Enter a country name in English or in native language" />
+        <Entry Margin="0,10,0,0"  x:Name="countryEntry" Text="{Binding Path=Country}" Placeholder="Country name" />
+        <Button Text="Search" Clicked="OnDeleteActivated" Style="{StaticResource darkerButton}" />
     </StackLayout>
 </ContentPage>
